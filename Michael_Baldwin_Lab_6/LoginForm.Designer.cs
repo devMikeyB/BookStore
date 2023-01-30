@@ -120,6 +120,7 @@
             this.videoButton.TabIndex = 9;
             this.videoButton.Text = "Video";
             this.videoButton.UseVisualStyleBackColor = true;
+            this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
             // 
             // cancelButton
             // 

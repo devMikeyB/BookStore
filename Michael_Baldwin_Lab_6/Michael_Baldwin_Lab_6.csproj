@@ -97,6 +97,12 @@
     <Compile Include="emailForm.Designer.cs">
       <DependentUpon>emailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="mediaPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mediaPlayer.Designer.cs">
+      <DependentUpon>mediaPlayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="emailForm.resx">
       <DependentUpon>emailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mediaPlayer.resx">
+      <DependentUpon>mediaPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
@@ -150,6 +159,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Credentials.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1462.37\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1462.37\build\Microsoft.Web.WebView2.targets')" />

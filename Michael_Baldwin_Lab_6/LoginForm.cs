@@ -23,11 +23,11 @@ namespace Michael_Baldwin_Lab_6
         private void LoginForm_Load(object sender, EventArgs e)
         {
             //Build our users.
-            User User0 = new User("Mike", "1111111111", "MikePass");
-            User User1 = new User("Tony", "2222222222", "TonyPass");
-            User User2 = new User("Marissa", "3333333333", "MarissaPass");
-            User User3 = new User("Mikki", "4444444444", "MikkiPass");
-            User User4 = new User("Toller", "5555555555", "TollerPass");
+            User User0 = new User("Mike", "MikePass");
+            User User1 = new User("Tony", "TonyPass");
+            User User2 = new User("Marissa", "MarissaPass");
+            User User3 = new User("Mikki", "MikkiPass");
+            User User4 = new User("Toller", "TollerPass");
 
 
             //Add Users to Array for easy access.
@@ -43,6 +43,7 @@ namespace Michael_Baldwin_Lab_6
         private void loginButton_Click(object sender, EventArgs e)
         {
 
+
             bool loginSuccessful = false;
             string alteredPhone = phoneTextBox.Text;
             string[] badChars = { "(", ")", " ", "-" }; //Array of characters to remove from entered phone number.
@@ -54,16 +55,24 @@ namespace Michael_Baldwin_Lab_6
             }
             // Console.WriteLine(alteredPhone); // Debug text
 
-            foreach (User user in UserList)
+            if (alteredPhone.Length != 10)
             {
-                if (user.Name.ToLower() == userTextBox.Text.ToLower() && user.Password == passTextBox.Text && user.Phone == alteredPhone) //Check for matches, letting username be any case.
-                {
-                    MessageBox.Show($"{user.Name} has successfully logged in. \nThank you for shopping!"); //Display message to user on successful login.
-                    Form bookStore = new discountBookPlace(userTextBox.Text, phoneTextBox.Text);
-                    bookStore.ShowDialog();
-
-                }
+                MessageBox.Show("Please enter a valid phone number.");
+                return;
             }
+
+                foreach (User user in UserList)
+                {
+                    if (user.Name.ToLower() == userTextBox.Text.ToLower() && user.Password == passTextBox.Text) //Check for matches, letting username be any case.
+                    {
+                        MessageBox.Show($"{user.Name} has successfully logged in. \nThank you for shopping!"); //Display message to user on successful login.
+                        Form bookStore = new discountBookPlace(userTextBox.Text, phoneTextBox.Text);
+                        bookStore.ShowDialog();
+                    return;
+                    }
+                }
+            MessageBox.Show("Invalid username or password.");
+            
         }
 
         private void websiteButton_Click(object sender, EventArgs e)
@@ -76,6 +85,12 @@ namespace Michael_Baldwin_Lab_6
         {
             Form orderForm = new emailForm();
             orderForm.ShowDialog();
+        }
+
+        private void videoButton_Click(object sender, EventArgs e)
+        {
+            Form mediaPlayer = new mediaPlayer();
+            mediaPlayer.ShowDialog();
         }
     }
 }
