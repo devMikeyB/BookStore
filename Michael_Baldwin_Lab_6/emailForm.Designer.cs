@@ -34,9 +34,9 @@
             this.subjectTextBox = new System.Windows.Forms.TextBox();
             this.bodyRTB = new System.Windows.Forms.RichTextBox();
             this.attachmentGroupBox = new System.Windows.Forms.GroupBox();
-            this.attachLabel = new System.Windows.Forms.Label();
-            this.attachTextBox = new System.Windows.Forms.TextBox();
             this.attachButton = new System.Windows.Forms.Button();
+            this.attachTextBox = new System.Windows.Forms.TextBox();
+            this.attachLabel = new System.Windows.Forms.Label();
             this.sendButton = new System.Windows.Forms.Button();
             this.attachmentGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -95,14 +95,15 @@
             this.attachmentGroupBox.TabStop = false;
             this.attachmentGroupBox.Text = "Attachment Required";
             // 
-            // attachLabel
+            // attachButton
             // 
-            this.attachLabel.AutoSize = true;
-            this.attachLabel.Location = new System.Drawing.Point(8, 28);
-            this.attachLabel.Name = "attachLabel";
-            this.attachLabel.Size = new System.Drawing.Size(67, 13);
-            this.attachLabel.TabIndex = 0;
-            this.attachLabel.Text = "Attachment: ";
+            this.attachButton.Location = new System.Drawing.Point(232, 50);
+            this.attachButton.Name = "attachButton";
+            this.attachButton.Size = new System.Drawing.Size(101, 23);
+            this.attachButton.TabIndex = 2;
+            this.attachButton.Text = "Add Attachment";
+            this.attachButton.UseVisualStyleBackColor = true;
+            this.attachButton.Click += new System.EventHandler(this.attachButton_Click);
             // 
             // attachTextBox
             // 
@@ -112,14 +113,14 @@
             this.attachTextBox.Size = new System.Drawing.Size(425, 20);
             this.attachTextBox.TabIndex = 1;
             // 
-            // attachButton
+            // attachLabel
             // 
-            this.attachButton.Location = new System.Drawing.Point(232, 50);
-            this.attachButton.Name = "attachButton";
-            this.attachButton.Size = new System.Drawing.Size(101, 23);
-            this.attachButton.TabIndex = 2;
-            this.attachButton.Text = "Add Attachment";
-            this.attachButton.UseVisualStyleBackColor = true;
+            this.attachLabel.AutoSize = true;
+            this.attachLabel.Location = new System.Drawing.Point(8, 28);
+            this.attachLabel.Name = "attachLabel";
+            this.attachLabel.Size = new System.Drawing.Size(67, 13);
+            this.attachLabel.TabIndex = 0;
+            this.attachLabel.Text = "Attachment: ";
             // 
             // sendButton
             // 
@@ -145,6 +146,7 @@
             this.Controls.Add(this.recipLabel);
             this.Name = "emailForm";
             this.Text = "emailForm";
+            this.Load += new System.EventHandler(this.emailForm_Load);
             this.attachmentGroupBox.ResumeLayout(false);
             this.attachmentGroupBox.PerformLayout();
             this.ResumeLayout(false);
