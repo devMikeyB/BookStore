@@ -377,6 +377,7 @@ namespace Michael_Baldwin_Lab_6
             this.Close();
         }
 
+
         private void viewVideoButton_Click(object sender, EventArgs e)
         { //Changes Source field of WebView2 Controller to full-size video for each book.
 
@@ -417,7 +418,6 @@ namespace Michael_Baldwin_Lab_6
             mainToolStrip.Visible = true; //Here
             statusStrip1.Visible = true;
             menuStrip1.Visible = true;
-
 
 
         }
