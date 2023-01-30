@@ -1,6 +1,6 @@
 ﻿namespace Michael_Baldwin_Lab_6
 {
-    partial class LoginForm
+    partial class loginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -100,6 +100,7 @@
             this.websiteButton.TabIndex = 7;
             this.websiteButton.Text = "Visit Website";
             this.websiteButton.UseVisualStyleBackColor = true;
+            this.websiteButton.Click += new System.EventHandler(this.websiteButton_Click);
             // 
             // emailButton
             // 
@@ -109,6 +110,7 @@
             this.emailButton.TabIndex = 8;
             this.emailButton.Text = "Email Order";
             this.emailButton.UseVisualStyleBackColor = true;
+            this.emailButton.Click += new System.EventHandler(this.emailButton_Click);
             // 
             // videoButton
             // 
@@ -136,7 +138,7 @@
             this.phoneTextBox.Size = new System.Drawing.Size(100, 20);
             this.phoneTextBox.TabIndex = 11;
             // 
-            // LoginForm
+            // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,8 +154,8 @@
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.passTextBox);
             this.Controls.Add(this.userTextBox);
-            this.Name = "LoginForm";
-            this.Text = "Form1";
+            this.Name = "loginForm";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

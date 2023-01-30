@@ -548,7 +548,7 @@ namespace Michael_Baldwin_Lab_6
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you would like to close?", 
+            if (MessageBox.Show("Are you sure you would like to close this page?", 
                 "Close Form Validation", 
                 MessageBoxButtons.YesNo, 
                 MessageBoxIcon.Exclamation, 

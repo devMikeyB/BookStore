@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Michael_Baldwin_Lab_6
 {
-    public partial class LoginForm : Form
+    public partial class loginForm : Form
     {
         //internal List<User> UserList = new List<User>();
         internal User[] UserList = new User[5];
 
-        public LoginForm()
+        public loginForm()
         {
             InitializeComponent();
         }
@@ -42,7 +42,7 @@ namespace Michael_Baldwin_Lab_6
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            
+
             bool loginSuccessful = false;
             string alteredPhone = phoneTextBox.Text;
             string[] badChars = { "(", ")", " ", "-" }; //Array of characters to remove from entered phone number.
@@ -61,9 +61,21 @@ namespace Michael_Baldwin_Lab_6
                     MessageBox.Show($"{user.Name} has successfully logged in. \nThank you for shopping!"); //Display message to user on successful login.
                     Form bookStore = new discountBookPlace(userTextBox.Text, phoneTextBox.Text);
                     bookStore.ShowDialog();
-                    
+
                 }
             }
+        }
+
+        private void websiteButton_Click(object sender, EventArgs e)
+        {
+            Form webBrowser = new browserForm();
+            webBrowser.ShowDialog();
+        }
+
+        private void emailButton_Click(object sender, EventArgs e)
+        {
+            Form orderForm = new emailForm();
+            orderForm.ShowDialog();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Michael_Baldwin_Lab_6
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new loginForm());
         }
     }
 }
