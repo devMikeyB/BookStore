@@ -11,17 +11,19 @@ namespace Michael_Baldwin_Lab_6
         public User() {
             this.Name = "Unknown";
             this.Phone = "5555555555";
+            this.Password = "Password";
         }
 
-        public User(string name, string phone)
+        public User(string name, string phone, string password)
         {
             this.Name = name;
             this.Phone = phone;
-
+            this.Password = password;
         }
 
         public string Name { get;}
         public string Phone { get;}
+        public string Password { get;}
 
 
 

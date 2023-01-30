@@ -14,13 +14,14 @@ namespace Michael_Baldwin_Lab_6
 {
     public partial class discountBookPlace : Form
     {
-        public discountBookPlace()
+        public discountBookPlace(string userName, string userPhone)
         {
             InitializeComponent();
+            this.usernameTextBox.Text = userName;
+            this.phoneMaskedTextBox.Text = userPhone;
         }
         internal List<Book> BookList = new List<Book>();
-        //internal List<User> UserList = new List<User>();
-        internal User[] UserList = new User[5];
+
         private void totalPriceLabel_Click(object sender, EventArgs e)
         {
             
@@ -29,17 +30,9 @@ namespace Michael_Baldwin_Lab_6
         private void Form1_Load(object sender, EventArgs e)
         {
 
+
             timeTimer.Start();
 
-            bookSelectionGroupBox.Visible = false;
-            selectedBookGroupBox.Visible = false;
-            shoppingCartGroupBox.Visible = false;
-            receiptGroupBox.Visible = false;
-            commentGroupBox.Visible = false;
-            videoGroupBox.Visible = false;
-            mainToolStrip.Visible = false; //Here
-            statusStrip1.Visible = false;
-            menuStrip1.Visible = false;
 
             //Category Images
             Image programmingCategoryImage = null;
@@ -80,24 +73,6 @@ namespace Michael_Baldwin_Lab_6
             catch (Exception ex){ MessageBox.Show(ex.ToString()); }
 
             Image[] toolStripImageList = { toolStripExitImage, toolStripClearImage };
-
-            //Build our users.
-            User User0 = new User("Mike", "1111111111");
-            User User1 = new User("Tony", "2222222222");
-            User User2 = new User("Marissa", "3333333333");
-            User User3 = new User("Mikki", "4444444444");
-            User User4 = new User("Toller", "5555555555");
-
-
-            //Add Users to Array for easy access.
-            //UserList.AddRange(new List<User> { User, User1, User2, User3, User4 });
-            //Add users to array;
-            UserList[0] = User0;
-            UserList[1] = User1;
-            UserList[2] = User2;
-            UserList[3] = User3;
-            UserList[4] = User4;
-
             
 
             //Build our Book Library
@@ -432,32 +407,19 @@ namespace Michael_Baldwin_Lab_6
         }
 
         private void loginButton_Click(object sender, EventArgs e)
-        { 
-            string alteredPhone = phoneMaskedTextBox.Text;
-            string[] badChars = { "(", ")", " ", "-" }; //Array of characters to remove from entered phone number.
-            
-            foreach (string badChar in badChars) // Remove Bad Characters from number by replacement.
-            {
-                alteredPhone = alteredPhone.Replace(badChar, String.Empty);
-                //Console.WriteLine(badChar); // Debug text
-            }
-            // Console.WriteLine(alteredPhone); // Debug text
+        {
+            bookSelectionGroupBox.Visible = true;
+            selectedBookGroupBox.Visible = true;
+            shoppingCartGroupBox.Visible = true;
+            receiptGroupBox.Visible = true;
+            commentGroupBox.Visible = true;
+            videoGroupBox.Visible = true;
+            mainToolStrip.Visible = true; //Here
+            statusStrip1.Visible = true;
+            menuStrip1.Visible = true;
 
-            foreach (User user in UserList){
-                if (user.Name.ToLower() == usernameTextBox.Text.ToLower() && user.Phone == alteredPhone) //Check for matches, letting username be any case.
-                {
-                    MessageBox.Show($"{user.Name} has successfully logged in. \nThank you for shopping!"); //Display message to user on successful login.
-                    bookSelectionGroupBox.Visible = true;
-                    selectedBookGroupBox.Visible = true;
-                    shoppingCartGroupBox.Visible = true;
-                    receiptGroupBox.Visible = true;
-                    commentGroupBox.Visible = true;
-                    videoGroupBox.Visible = true;
-                    mainToolStrip.Visible = true; //Here
-                    statusStrip1.Visible = true;
-                    menuStrip1.Visible = true;
-                }
-            }
+
+
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)

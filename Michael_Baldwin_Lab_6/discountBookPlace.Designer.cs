@@ -38,8 +38,6 @@
             this.usernameLabel = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.phoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.loginButton = new System.Windows.Forms.Button();
             this.bookSelectionGroupBox = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bookStockListBox = new System.Windows.Forms.ListBox();
@@ -129,12 +127,13 @@
             // 
             // mainToolStrip
             // 
+            this.mainToolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripButton,
             this.clearToolStripButton});
             this.mainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.mainToolStrip.Name = "mainToolStrip";
-            this.mainToolStrip.Size = new System.Drawing.Size(1361, 25);
+            this.mainToolStrip.Size = new System.Drawing.Size(1361, 31);
             this.mainToolStrip.TabIndex = 0;
             this.mainToolStrip.Text = "toolStrip1";
             // 
@@ -144,7 +143,7 @@
             this.exitToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripButton.Image")));
             this.exitToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.exitToolStripButton.Name = "exitToolStripButton";
-            this.exitToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.exitToolStripButton.Size = new System.Drawing.Size(28, 28);
             this.exitToolStripButton.Text = "ExitButton";
             this.exitToolStripButton.ToolTipText = "Exit Application";
             this.exitToolStripButton.Click += new System.EventHandler(this.exitToolStripButton_Click);
@@ -155,7 +154,7 @@
             this.clearToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("clearToolStripButton.Image")));
             this.clearToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.clearToolStripButton.Name = "clearToolStripButton";
-            this.clearToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.clearToolStripButton.Size = new System.Drawing.Size(28, 28);
             this.clearToolStripButton.Text = "Clear Form";
             this.clearToolStripButton.Click += new System.EventHandler(this.clearToolStripButton_Click);
             // 
@@ -165,8 +164,6 @@
             this.loginGroupBox.Controls.Add(this.usernameLabel);
             this.loginGroupBox.Controls.Add(this.usernameTextBox);
             this.loginGroupBox.Controls.Add(this.phoneMaskedTextBox);
-            this.loginGroupBox.Controls.Add(this.clearButton);
-            this.loginGroupBox.Controls.Add(this.loginButton);
             this.loginGroupBox.Location = new System.Drawing.Point(8, 52);
             this.loginGroupBox.Name = "loginGroupBox";
             this.loginGroupBox.Size = new System.Drawing.Size(719, 75);
@@ -188,14 +185,16 @@
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Location = new System.Drawing.Point(6, 28);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(86, 13);
+            this.usernameLabel.Size = new System.Drawing.Size(61, 13);
             this.usernameLabel.TabIndex = 6;
-            this.usernameLabel.Text = "Enter Username:";
+            this.usernameLabel.Text = "Username: ";
             // 
             // usernameTextBox
             // 
+            this.usernameTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.usernameTextBox.Location = new System.Drawing.Point(98, 25);
             this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.ReadOnly = true;
             this.usernameTextBox.Size = new System.Drawing.Size(100, 20);
             this.usernameTextBox.TabIndex = 5;
             this.mainToolTip.SetToolTip(this.usernameTextBox, "Login Textbox");
@@ -203,35 +202,15 @@
             // 
             // phoneMaskedTextBox
             // 
+            this.phoneMaskedTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.phoneMaskedTextBox.Location = new System.Drawing.Point(326, 25);
             this.phoneMaskedTextBox.Mask = "(999) 000-0000";
             this.phoneMaskedTextBox.Name = "phoneMaskedTextBox";
+            this.phoneMaskedTextBox.ReadOnly = true;
             this.phoneMaskedTextBox.Size = new System.Drawing.Size(100, 20);
             this.phoneMaskedTextBox.TabIndex = 6;
             this.mainToolTip.SetToolTip(this.phoneMaskedTextBox, "Input Phone Number");
             this.phoneMaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneMaskedTextBox_KeyPress);
-            // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(617, 22);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 3;
-            this.clearButton.Text = "Clear";
-            this.mainToolTip.SetToolTip(this.clearButton, "Clear login fields");
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-            // 
-            // loginButton
-            // 
-            this.loginButton.Location = new System.Drawing.Point(495, 22);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(75, 23);
-            this.loginButton.TabIndex = 7;
-            this.loginButton.Text = "Login";
-            this.mainToolTip.SetToolTip(this.loginButton, "Login");
-            this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // bookSelectionGroupBox
             // 
@@ -267,6 +246,7 @@
             // 
             // mainContextMenuStrip
             // 
+            this.mainContextMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.takeNotesToolStripMenuItem,
             this.searchWebToolStripMenuItem,
@@ -670,6 +650,7 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.timeToolStripStatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 501);
@@ -691,6 +672,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.firstToolStripMenuItem,
             this.bookSelectionToolStripMenuItem,
@@ -943,10 +925,6 @@
         private System.Windows.Forms.GroupBox loginGroupBox;
         private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.Label usernameLabel;
-        private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.MaskedTextBox phoneMaskedTextBox;
-        private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.GroupBox bookSelectionGroupBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox bookStockListBox;
@@ -1017,6 +995,8 @@
         private System.Windows.Forms.ToolStripMenuItem quitChromeToolStripMenuItem;
         private System.Diagnostics.Process notepadProcess;
         private System.Diagnostics.Process chromeProcess;
+        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.MaskedTextBox phoneMaskedTextBox;
     }
 }
 
